@@ -1,8 +1,8 @@
 using System.Linq.Expressions;
 using Microsoft.EntityFrameworkCore;
-using NotificationCenter.Application.Abstractions.Persistence;
+using CNS.Application.Abstractions.Persistence;
 
-namespace NotificationCenter.Infrastructure.Persistence;
+namespace CNS.Infrastructure.Persistence;
 
 public class BaseRepository<T>(AppDbContext db) : IRepository<T> where T : class
 {

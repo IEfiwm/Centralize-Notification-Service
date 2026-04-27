@@ -1,8 +1,8 @@
-using NotificationCenter.Application.Abstractions.Persistence;
-using NotificationCenter.Application.Abstractions.Security;
-using NotificationCenter.Domain.Users;
+using CNS.Application.Abstractions.Persistence;
+using CNS.Application.Abstractions.Security;
+using CNS.Domain.Users;
 
-namespace NotificationCenter.Infrastructure.Security;
+namespace CNS.Infrastructure.Security;
 
 public sealed class BasicAuthService(
     IRepository<User> users,

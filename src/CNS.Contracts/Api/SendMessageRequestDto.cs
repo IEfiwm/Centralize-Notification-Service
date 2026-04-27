@@ -1,4 +1,4 @@
-namespace NotificationCenter.Contracts.Api;
+namespace CNS.Contracts.Api;
 
 public sealed record SendMessageRequestDto(
     string Channel,

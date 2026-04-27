@@ -1,4 +1,4 @@
-namespace NotificationCenter.Application.Abstractions.Messaging;
+namespace CNS.Application.Abstractions.Messaging;
 
 public interface IMessageProvider
 {

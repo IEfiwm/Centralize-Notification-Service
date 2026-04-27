@@ -1,4 +1,4 @@
-namespace NotificationCenter.Infrastructure.Messaging;
+namespace CNS.Infrastructure.Messaging;
 
 public sealed class RabbitMqOptions
 {

@@ -1,10 +1,10 @@
 <Solution>
   <Folder Name="/src/">
-    <Project Path="src/NotificationCenter.Api/NotificationCenter.Api.csproj" />
-    <Project Path="src/NotificationCenter.Application/NotificationCenter.Application.csproj" />
-    <Project Path="src/NotificationCenter.Consumer/NotificationCenter.Consumer.csproj" />
-    <Project Path="src/NotificationCenter.Contracts/NotificationCenter.Contracts.csproj" />
-    <Project Path="src/NotificationCenter.Domain/NotificationCenter.Domain.csproj" />
-    <Project Path="src/NotificationCenter.Infrastructure/NotificationCenter.Infrastructure.csproj" />
+    <Project Path="src/CNS.Api/CNS.Api.csproj" />
+    <Project Path="src/CNS.Application/CNS.Application.csproj" />
+    <Project Path="src/CNS.Consumer/CNS.Consumer.csproj" />
+    <Project Path="src/CNS.Contracts/CNS.Contracts.csproj" />
+    <Project Path="src/CNS.Domain/CNS.Domain.csproj" />
+    <Project Path="src/CNS.Infrastructure/CNS.Infrastructure.csproj" />
   </Folder>
 </Solution>

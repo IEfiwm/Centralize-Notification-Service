@@ -1,9 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>
-    <ProjectReference Include="..\NotificationCenter.Application\NotificationCenter.Application.csproj" />
-    <ProjectReference Include="..\NotificationCenter.Domain\NotificationCenter.Domain.csproj" />
-    <ProjectReference Include="..\NotificationCenter.Contracts\NotificationCenter.Contracts.csproj" />
+    <ProjectReference Include="..\CNS.Application\CNS.Application.csproj" />
+    <ProjectReference Include="..\CNS.Domain\CNS.Domain.csproj" />
+    <ProjectReference Include="..\CNS.Contracts\CNS.Contracts.csproj" />
   </ItemGroup>
 
   <ItemGroup>

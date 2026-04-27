@@ -1,4 +1,4 @@
-﻿namespace NotificationCenter.Infrastructure;
+namespace CNS.Infrastructure;
 
 public class Class1
 {

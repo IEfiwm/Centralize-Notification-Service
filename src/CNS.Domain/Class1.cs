@@ -1,4 +1,4 @@
-﻿namespace NotificationCenter.Domain;
+namespace CNS.Domain;
 
 public class Class1
 {

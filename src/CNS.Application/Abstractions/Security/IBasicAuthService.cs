@@ -1,6 +1,6 @@
-using NotificationCenter.Domain.Users;
+using CNS.Domain.Users;
 
-namespace NotificationCenter.Application.Abstractions.Security;
+namespace CNS.Application.Abstractions.Security;
 
 public interface IBasicAuthService
 {

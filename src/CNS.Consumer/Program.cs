@@ -1,8 +1,10 @@
-using NotificationCenter.Consumer;
-using NotificationCenter.Infrastructure;
-using NotificationCenter.Infrastructure.Persistence;
+using CNS.Consumer;
+using CNS.Infrastructure;
+using CNS.Infrastructure.Persistence;
 
 var builder = Host.CreateApplicationBuilder(args);
+
+builder.Configuration.AddJsonFile("appsettings.local.json", optional: true, reloadOnChange: true);
 
 builder.Services.AddInfrastructure(builder.Configuration);
 builder.Services.AddHostedService<Worker>();

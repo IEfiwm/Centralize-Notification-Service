@@ -1,4 +1,4 @@
-namespace NotificationCenter.Infrastructure.Providers.Sms;
+namespace CNS.Infrastructure.Providers.Sms;
 
 public sealed class SmsOptions
 {

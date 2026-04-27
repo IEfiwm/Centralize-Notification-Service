@@ -1,11 +1,11 @@
 using System.Text;
 using System.Text.Json;
 using Microsoft.Extensions.Options;
-using NotificationCenter.Application.Abstractions.Messaging;
-using NotificationCenter.Contracts;
+using CNS.Application.Abstractions.Messaging;
+using CNS.Contracts;
 using RabbitMQ.Client;
 
-namespace NotificationCenter.Infrastructure.Messaging;
+namespace CNS.Infrastructure.Messaging;
 
 public sealed class RabbitMqMessagePublisher(IOptions<RabbitMqOptions> options) : IMessagePublisher
 {

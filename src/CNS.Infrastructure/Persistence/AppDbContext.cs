@@ -1,8 +1,8 @@
 using Microsoft.EntityFrameworkCore;
-using NotificationCenter.Domain.Messaging;
-using NotificationCenter.Domain.Users;
+using CNS.Domain.Messaging;
+using CNS.Domain.Users;
 
-namespace NotificationCenter.Infrastructure.Persistence;
+namespace CNS.Infrastructure.Persistence;
 
 public sealed class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(options)
 {

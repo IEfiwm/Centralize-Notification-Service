@@ -1,6 +1,6 @@
-using NotificationCenter.Domain.Common;
+using CNS.Domain.Common;
 
-namespace NotificationCenter.Domain.Messaging;
+namespace CNS.Domain.Messaging;
 
 public sealed class MessageLog : Entity
 {

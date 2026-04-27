@@ -3,13 +3,16 @@ using System.Text;
 using System.Text.Encodings.Web;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Options;
-using NotificationCenter.Application.Commands.SendMessage;
-using NotificationCenter.Contracts.Api;
-using NotificationCenter.Infrastructure;
-using NotificationCenter.Infrastructure.Persistence;
+using CNS.Application.Commands.SendMessage;
+using CNS.Contracts.Api;
+using CNS.Infrastructure;
+using CNS.Infrastructure.Persistence;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Configuration.AddJsonFile("appsettings.local.json", optional: true, reloadOnChange: true);
 
 builder.Services.AddInfrastructure(builder.Configuration);
 builder.Services.AddScoped<SendMessageCommandHandler>();
@@ -53,7 +56,7 @@ sealed class BasicAuthenticationHandler(
     IOptionsMonitor<AuthenticationSchemeOptions> options,
     ILoggerFactory logger,
     UrlEncoder encoder,
-    NotificationCenter.Application.Abstractions.Security.IBasicAuthService authService
+    CNS.Application.Abstractions.Security.IBasicAuthService authService
 ) : AuthenticationHandler<AuthenticationSchemeOptions>(options, logger, encoder)
 {
     protected override async Task<AuthenticateResult> HandleAuthenticateAsync()

@@ -1,4 +1,4 @@
-namespace NotificationCenter.Domain.Common;
+namespace CNS.Domain.Common;
 
 public abstract class Entity
 {

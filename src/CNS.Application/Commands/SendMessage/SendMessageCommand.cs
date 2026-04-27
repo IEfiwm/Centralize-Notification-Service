@@ -1,6 +1,6 @@
-using NotificationCenter.Contracts.Api;
+using CNS.Contracts.Api;
 
-namespace NotificationCenter.Application.Commands.SendMessage;
+namespace CNS.Application.Commands.SendMessage;
 
 public sealed record SendMessageCommand(string RequestId, SendMessageRequestDto Request);
 

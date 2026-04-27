@@ -1,4 +1,4 @@
-namespace NotificationCenter.Application.Abstractions.Security;
+namespace CNS.Application.Abstractions.Security;
 
 public interface IPasswordHasher
 {

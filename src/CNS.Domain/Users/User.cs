@@ -1,6 +1,6 @@
-using NotificationCenter.Domain.Common;
+using CNS.Domain.Common;
 
-namespace NotificationCenter.Domain.Users;
+namespace CNS.Domain.Users;
 
 public sealed class User : Entity
 {

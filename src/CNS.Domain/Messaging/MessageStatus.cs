@@ -1,4 +1,4 @@
-namespace NotificationCenter.Domain.Messaging;
+namespace CNS.Domain.Messaging;
 
 public enum MessageStatus
 {

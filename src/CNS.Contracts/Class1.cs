@@ -1,4 +1,4 @@
-﻿namespace NotificationCenter.Contracts;
+namespace CNS.Contracts;
 
 public static class Channels
 {

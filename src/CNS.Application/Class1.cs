@@ -1,4 +1,4 @@
-﻿namespace NotificationCenter.Application;
+namespace CNS.Application;
 
 public class Class1
 {

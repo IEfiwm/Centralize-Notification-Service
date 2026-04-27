@@ -1,6 +1,6 @@
-using NotificationCenter.Application.Abstractions.Messaging;
+using CNS.Application.Abstractions.Messaging;
 
-namespace NotificationCenter.Infrastructure.Messaging;
+namespace CNS.Infrastructure.Messaging;
 
 public sealed class MessageProviderResolver(IEnumerable<IMessageProvider> providers) : IMessageProviderResolver
 {

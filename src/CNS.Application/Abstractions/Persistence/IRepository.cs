@@ -1,6 +1,6 @@
 using System.Linq.Expressions;
 
-namespace NotificationCenter.Application.Abstractions.Persistence;
+namespace CNS.Application.Abstractions.Persistence;
 
 public interface IRepository<T> where T : class
 {

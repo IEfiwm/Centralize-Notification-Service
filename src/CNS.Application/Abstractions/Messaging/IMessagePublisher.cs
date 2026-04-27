@@ -1,6 +1,6 @@
-using NotificationCenter.Contracts;
+using CNS.Contracts;
 
-namespace NotificationCenter.Application.Abstractions.Messaging;
+namespace CNS.Application.Abstractions.Messaging;
 
 public interface IMessagePublisher
 {

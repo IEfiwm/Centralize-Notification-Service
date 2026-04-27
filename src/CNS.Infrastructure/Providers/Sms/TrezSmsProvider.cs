@@ -1,10 +1,10 @@
 using System.Net;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using NotificationCenter.Application.Abstractions.Messaging;
-using NotificationCenter.Contracts;
+using CNS.Application.Abstractions.Messaging;
+using CNS.Contracts;
 
-namespace NotificationCenter.Infrastructure.Providers.Sms;
+namespace CNS.Infrastructure.Providers.Sms;
 
 public sealed class TrezSmsProvider(
     HttpClient httpClient,

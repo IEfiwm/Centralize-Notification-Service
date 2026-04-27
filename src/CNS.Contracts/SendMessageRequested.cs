@@ -1,6 +1,6 @@
 using System.Text.Json.Serialization;
 
-namespace NotificationCenter.Contracts;
+namespace CNS.Contracts;
 
 public sealed record SendMessageRequested(
     string RequestId,

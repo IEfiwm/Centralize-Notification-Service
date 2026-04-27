@@ -1,9 +1,9 @@
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using NotificationCenter.Application.Abstractions.Messaging;
-using NotificationCenter.Contracts;
+using CNS.Application.Abstractions.Messaging;
+using CNS.Contracts;
 
-namespace NotificationCenter.Infrastructure.Providers.Sms;
+namespace CNS.Infrastructure.Providers.Sms;
 
 public sealed class SampleSmsProvider(IOptions<SmsOptions> options, ILogger<SampleSmsProvider> logger) : IMessageProvider
 {

@@ -2,15 +2,15 @@ using System.Text;
 using System.Text.Json;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
-using NotificationCenter.Application.Abstractions.Messaging;
-using NotificationCenter.Application.Abstractions.Persistence;
-using NotificationCenter.Contracts;
-using NotificationCenter.Domain.Messaging;
-using NotificationCenter.Infrastructure.Messaging;
+using CNS.Application.Abstractions.Messaging;
+using CNS.Application.Abstractions.Persistence;
+using CNS.Contracts;
+using CNS.Domain.Messaging;
+using CNS.Infrastructure.Messaging;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 
-namespace NotificationCenter.Consumer;
+namespace CNS.Consumer;
 
 public sealed class Worker(
     ILogger<Worker> logger,

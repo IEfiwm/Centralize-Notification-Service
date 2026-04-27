@@ -4,7 +4,7 @@
     <TargetFramework>net10.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <UserSecretsId>dotnet-NotificationCenter.Consumer-e97611e8-b846-4719-937b-5b1f618d7958</UserSecretsId>
+    <UserSecretsId>dotnet-CNS.Consumer-e97611e8-b846-4719-937b-5b1f618d7958</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
@@ -13,8 +13,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\NotificationCenter.Application\NotificationCenter.Application.csproj" />
-    <ProjectReference Include="..\NotificationCenter.Infrastructure\NotificationCenter.Infrastructure.csproj" />
-    <ProjectReference Include="..\NotificationCenter.Contracts\NotificationCenter.Contracts.csproj" />
+    <ProjectReference Include="..\CNS.Application\CNS.Application.csproj" />
+    <ProjectReference Include="..\CNS.Infrastructure\CNS.Infrastructure.csproj" />
+    <ProjectReference Include="..\CNS.Contracts\CNS.Contracts.csproj" />
   </ItemGroup>
 </Project>

@@ -2,15 +2,15 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
-using NotificationCenter.Application.Abstractions.Messaging;
-using NotificationCenter.Application.Abstractions.Persistence;
-using NotificationCenter.Application.Abstractions.Security;
-using NotificationCenter.Infrastructure.Messaging;
-using NotificationCenter.Infrastructure.Persistence;
-using NotificationCenter.Infrastructure.Providers.Sms;
-using NotificationCenter.Infrastructure.Security;
+using CNS.Application.Abstractions.Messaging;
+using CNS.Application.Abstractions.Persistence;
+using CNS.Application.Abstractions.Security;
+using CNS.Infrastructure.Messaging;
+using CNS.Infrastructure.Persistence;
+using CNS.Infrastructure.Providers.Sms;
+using CNS.Infrastructure.Security;
 
-namespace NotificationCenter.Infrastructure;
+namespace CNS.Infrastructure;
 
 public static class ServiceCollectionExtensions
 {

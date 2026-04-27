@@ -1,9 +1,9 @@
-using NotificationCenter.Application.Abstractions.Messaging;
-using NotificationCenter.Application.Abstractions.Persistence;
-using NotificationCenter.Contracts;
-using NotificationCenter.Domain.Messaging;
+using CNS.Application.Abstractions.Messaging;
+using CNS.Application.Abstractions.Persistence;
+using CNS.Contracts;
+using CNS.Domain.Messaging;
 
-namespace NotificationCenter.Application.Commands.SendMessage;
+namespace CNS.Application.Commands.SendMessage;
 
 public sealed class SendMessageCommandHandler(
     IRepository<MessageLog> messageLogs,

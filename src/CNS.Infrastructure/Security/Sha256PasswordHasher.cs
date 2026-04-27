@@ -1,8 +1,8 @@
 using System.Security.Cryptography;
 using System.Text;
-using NotificationCenter.Application.Abstractions.Security;
+using CNS.Application.Abstractions.Security;
 
-namespace NotificationCenter.Infrastructure.Security;
+namespace CNS.Infrastructure.Security;
 
 public sealed class Sha256PasswordHasher : IPasswordHasher
 {

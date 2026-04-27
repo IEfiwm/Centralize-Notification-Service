@@ -1,10 +1,10 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using NotificationCenter.Application.Abstractions.Security;
-using NotificationCenter.Domain.Users;
+using CNS.Application.Abstractions.Security;
+using CNS.Domain.Users;
 
-namespace NotificationCenter.Infrastructure.Persistence;
+namespace CNS.Infrastructure.Persistence;
 
 public static class DatabaseInitializer
 {
