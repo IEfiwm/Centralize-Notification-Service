@@ -3,14 +3,19 @@ using System.Text;
 using System.Text.Encodings.Web;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Options;
 using CNS.Application.Commands.SendMessage;
 using CNS.Contracts.Api;
 using CNS.Infrastructure;
+using CNS.Infrastructure.Hosting;
 using CNS.Infrastructure.Persistence;
 
-var builder = WebApplication.CreateBuilder(args);
+var environmentName = AppEnvironmentNameResolver.Resolve();
+var builder = WebApplication.CreateBuilder(new WebApplicationOptions
+{
+    Args = args,
+    EnvironmentName = environmentName
+});
 
 builder.Configuration.AddJsonFile("appsettings.local.json", optional: true, reloadOnChange: true);
 

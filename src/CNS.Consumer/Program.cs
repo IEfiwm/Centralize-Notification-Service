@@ -1,8 +1,15 @@
 using CNS.Consumer;
 using CNS.Infrastructure;
+using CNS.Infrastructure.Hosting;
 using CNS.Infrastructure.Persistence;
+using Microsoft.Extensions.Hosting;
 
-var builder = Host.CreateApplicationBuilder(args);
+var environmentName = AppEnvironmentNameResolver.Resolve();
+var builder = Host.CreateApplicationBuilder(new HostApplicationBuilderSettings
+{
+    Args = args,
+    EnvironmentName = environmentName
+});
 
 builder.Configuration.AddJsonFile("appsettings.local.json", optional: true, reloadOnChange: true);
 
