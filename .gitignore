@@ -1,0 +1,64 @@
+# ---- .NET / Visual Studio / Rider / VSCode ----
+## Build results
+**/bin/
+**/obj/
+**/artifacts/
+
+## User-specific files
+**/*.user
+**/*.suo
+**/*.userosscache
+**/*.sln.docstates
+**/*.csproj.user
+
+## IDE folders
+.vs/
+.idea/
+.vscode/
+
+## OS files
+[Tt]humbs.db
+[Dd]esktop.ini
+
+## Logs
+**/*.log
+**/logs/
+
+# ---- ASP.NET / local secrets ----
+**/appsettings.*.local.json
+**/appsettings.local.json
+**/secrets.json
+
+# ---- EF Core ----
+## Keep migrations tracked (do NOT ignore Migrations folders)
+## but ignore local DB files if any appear
+**/*.db
+**/*.db-shm
+**/*.db-wal
+
+# ---- Docker ----
+**/.env
+**/.env.*
+docker-compose.override.yml
+
+# ---- Test results / coverage ----
+**/TestResults/
+**/*.trx
+**/*.coverage
+**/*.coveragexml
+**/coverage*/
+
+# ---- NuGet ----
+## packages folder is usually not used in SDK-style projects, but ignore if present
+**/packages/
+## per-user machine caches should not be committed
+**/project.lock.json
+**/project.fragment.lock.json
+
+# ---- Misc ----
+**/*.nupkg
+**/*.snupkg
+**/*.pdb
+**/*.cache
+**/.DS_Store
+
