@@ -1,6 +1,31 @@
 @CNS.Api_HostAddress = http://localhost:5226
+@basicAuth = Basic YWRtaW46YWRtaW4xMjM=
 
-GET {{CNS.Api_HostAddress}}/weatherforecast/
-Accept: application/json
+### Quick SMS (minimal body: phone + message)
+POST {{CNS.Api_HostAddress}}/messages/sms/quick
+Authorization: {{basicAuth}}
+Content-Type: application/json
+
+{
+  "phone": "09123456789",
+  "message": "Quick send sample from CNS",
+  "providerHint": "sample-sms"
+}
+
+###
+
+### Full send (any channel)
+POST {{CNS.Api_HostAddress}}/messages
+Authorization: {{basicAuth}}
+Content-Type: application/json
+
+{
+  "channel": "sms",
+  "recipient": "09123456789",
+  "subject": null,
+  "body": "Hello from full API",
+  "metadata": null,
+  "providerHint": "sample-sms"
+}
 
 ###
