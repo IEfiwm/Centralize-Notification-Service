@@ -12,6 +12,7 @@ public static class DatabaseInitializer
     {
         using var scope = services.CreateScope();
         var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+        
         await db.Database.MigrateAsync(ct);
 
         var config = scope.ServiceProvider.GetRequiredService<IConfiguration>();

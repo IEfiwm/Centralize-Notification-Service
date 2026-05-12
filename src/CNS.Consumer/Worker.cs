@@ -21,13 +21,23 @@ public sealed class Worker(
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
         var opt = rabbitOptions.Value;
+        //var factory = new ConnectionFactory
+        //{
+        //    HostName = opt.HostName,
+        //    Port = opt.Port,
+        //    VirtualHost = opt.VirtualHost,
+        //    UserName = opt.UserName,
+        //    Password = opt.Password,
+        //    DispatchConsumersAsync = true
+        //};
+
         var factory = new ConnectionFactory
         {
-            HostName = opt.HostName,
-            Port = opt.Port,
-            VirtualHost = opt.VirtualHost,
-            UserName = opt.UserName,
-            Password = opt.Password,
+            HostName = "localhost",
+            Port = 5672,
+            VirtualHost = "/",
+            UserName = "admin",
+            Password = "admin123",
             DispatchConsumersAsync = true
         };
 
@@ -72,16 +82,6 @@ public sealed class Worker(
         var logs = scope.ServiceProvider.GetRequiredService<IRepository<MessageLog>>();
         var resolver = scope.ServiceProvider.GetRequiredService<IMessageProviderResolver>();
 
-        var log = await logs.Query().FirstOrDefaultAsync(x => x.RequestId == evt.RequestId, ct);
-        if (log is null)
-        {
-            logger.LogWarning("No MessageLog found for RequestId={RequestId}", evt.RequestId);
-            return;
-        }
-
-        log.MarkProcessing();
-        await logs.SaveChangesAsync(ct);
-
         var provider = resolver.Resolve(evt.Channel, evt.ProviderHint);
 
         try
@@ -96,12 +96,10 @@ public sealed class Worker(
                 ProviderHint: evt.ProviderHint
             ), ct);
 
-            log.MarkSent(provider.Name);
             await logs.SaveChangesAsync(ct);
         }
         catch (Exception ex)
         {
-            log.MarkFailed(provider.Name, ex.Message);
             await logs.SaveChangesAsync(ct);
             throw;
         }

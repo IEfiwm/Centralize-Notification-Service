@@ -13,13 +13,23 @@ public sealed class RabbitMqMessagePublisher(IOptions<RabbitMqOptions> options) 
     {
         var opt = options.Value;
 
+        //var factory = new ConnectionFactory
+        //{
+        //    HostName = opt.HostName,
+        //    Port = opt.Port,
+        //    VirtualHost = opt.VirtualHost,
+        //    UserName = opt.UserName,
+        //    Password = opt.Password,
+        //    DispatchConsumersAsync = true
+        //};
+
         var factory = new ConnectionFactory
         {
-            HostName = opt.HostName,
-            Port = opt.Port,
-            VirtualHost = opt.VirtualHost,
-            UserName = opt.UserName,
-            Password = opt.Password,
+            HostName = "localhost",
+            Port = 5672,
+            VirtualHost = "/",
+            UserName = "admin",
+            Password = "admin123",
             DispatchConsumersAsync = true
         };
 

@@ -7,7 +7,7 @@ namespace CNS.Api.Controllers;
 /// پایهٔ مشترک برای همهٔ کنترلرهای API: JSON، احراز هویت، و قرارداد Web API.
 /// </summary>
 [ApiController]
-[Authorize]
+//[Authorize]
 [Produces("application/json")]
 public abstract class ApiControllerBase : ControllerBase
 {

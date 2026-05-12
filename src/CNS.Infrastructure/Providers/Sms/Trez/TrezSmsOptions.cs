@@ -1,4 +1,4 @@
-namespace CNS.Infrastructure.Providers.Sms;
+namespace CNS.Infrastructure.Providers.Sms.Trez;
 
 public sealed class TrezSmsOptions
 {

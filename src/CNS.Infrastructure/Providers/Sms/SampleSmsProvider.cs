@@ -12,7 +12,7 @@ public sealed class SampleSmsProvider(IOptions<SmsOptions> options, ILogger<Samp
 
     public Task SendAsync(MessageContext ctx, CancellationToken ct)
     {
-        // نمونه: جایگزین با API واقعی SMS شما (Kavenegar, Twilio, ...)
+         //نمونه: جایگزین با API واقعی SMS شما (Kavenegar, Twilio, ...)
         logger.LogInformation(
             "SMS sent via {Provider}. To={Recipient} Body={Body}",
             Name,

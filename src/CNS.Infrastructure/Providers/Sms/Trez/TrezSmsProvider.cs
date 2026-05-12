@@ -4,7 +4,7 @@ using Microsoft.Extensions.Options;
 using CNS.Application.Abstractions.Messaging;
 using CNS.Contracts;
 
-namespace CNS.Infrastructure.Providers.Sms;
+namespace CNS.Infrastructure.Providers.Sms.Trez;
 
 public sealed class TrezSmsProvider(
     HttpClient httpClient,
@@ -26,6 +26,7 @@ public sealed class TrezSmsProvider(
             message = message.Replace(opt.RemoveToken, "", StringComparison.Ordinal);
 
         var url =
+            $"{opt.BaseUrl}"+
             $"{opt.EndpointPath}?Username={WebUtility.UrlEncode(opt.Username)}" +
             $"&Password={WebUtility.UrlEncode(opt.Password)}" +
             $"&Mobile={WebUtility.UrlEncode(ctx.Recipient)}" +
