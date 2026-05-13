@@ -19,7 +19,7 @@ public sealed class GhasedmehrSmsProvider(
     public string Channel => Channels.Sms;
 
     private const string BaseUrl = "https://apiv2.ghasedmehr.ir";
-    public static string AccessToken { get; set; }
+    public static string? AccessToken { get; set; }
 
     public async Task SendAsync(MessageContext ctx, CancellationToken ct)
     {

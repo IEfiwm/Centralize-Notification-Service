@@ -35,4 +35,3 @@ public static class DatabaseInitializer
         await db.SaveChangesAsync(ct);
     }
 }
-

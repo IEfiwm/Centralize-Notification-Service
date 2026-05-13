@@ -22,7 +22,8 @@ public static class ServiceCollectionExtensions
         var cs = config.GetConnectionString("Postgres");
         services.AddDbContext<AppDbContext>(opt =>
         {
-            opt.UseNpgsql(config.GetConnectionString("Postgres"));
+            opt.UseNpgsql(cs)
+            .EnableDetailedErrors(true);
         });
 
         services.AddScoped(typeof(IRepository<>), typeof(BaseRepository<>));

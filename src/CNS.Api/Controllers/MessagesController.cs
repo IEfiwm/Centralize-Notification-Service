@@ -1,7 +1,7 @@
-using Microsoft.AspNetCore.Mvc;
 using CNS.Application.Commands.SendMessage;
 using CNS.Contracts;
 using CNS.Contracts.Api;
+using Microsoft.AspNetCore.Mvc;
 
 namespace CNS.Api.Controllers;
 

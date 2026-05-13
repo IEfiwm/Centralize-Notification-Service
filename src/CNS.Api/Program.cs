@@ -30,7 +30,7 @@ builder.Services.AddSwaggerGen(options =>
 });
 
 
-builder.Configuration.AddJsonFile("appsettings.Development.json", optional: true, reloadOnChange: true);
+builder.Configuration.AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
 
 builder.Services.AddInfrastructure(builder.Configuration);
 builder.Services.AddScoped<SendMessageCommandHandler>();
