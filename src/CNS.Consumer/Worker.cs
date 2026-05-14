@@ -21,25 +21,25 @@ public sealed class Worker(
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
         var opt = rabbitOptions.Value;
-        var factory = new ConnectionFactory
-        {
-            HostName = opt.HostName,
-            Port = opt.Port,
-            VirtualHost = opt.VirtualHost,
-            UserName = opt.UserName,
-            Password = opt.Password,
-            DispatchConsumersAsync = true
-        };
-
         //var factory = new ConnectionFactory
         //{
-        //    HostName = "localhost",
-        //    Port = 5672,
-        //    VirtualHost = "/",
-        //    UserName = "admin",
-        //    Password = "admin123",
+        //    HostName = opt.HostName,
+        //    Port = opt.Port,
+        //    VirtualHost = opt.VirtualHost,
+        //    UserName = opt.UserName,
+        //    Password = opt.Password,
         //    DispatchConsumersAsync = true
         //};
+
+        var factory = new ConnectionFactory
+        {
+            HostName = "192.168.90.157",
+            Port = 5672,
+            VirtualHost = "/",
+            UserName = "adminDaric",
+            Password = "YET8fVhGngA96HUPZpk4zB",
+            DispatchConsumersAsync = true
+        };
 
         using var connection = factory.CreateConnection();
         using var channel = connection.CreateModel();

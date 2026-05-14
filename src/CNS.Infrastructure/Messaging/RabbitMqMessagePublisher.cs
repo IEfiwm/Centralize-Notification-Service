@@ -25,11 +25,11 @@ public sealed class RabbitMqMessagePublisher(IOptions<RabbitMqOptions> options) 
 
         var factory = new ConnectionFactory
         {
-            HostName = "localhost",
+            HostName = "192.168.90.157",
             Port = 5672,
             VirtualHost = "/",
-            UserName = "admin",
-            Password = "admin123",
+            UserName = "adminDaric",
+            Password = "YET8fVhGngA96HUPZpk4zB",
             DispatchConsumersAsync = true
         };
 
