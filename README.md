@@ -94,6 +94,60 @@ dotnet run --project src/CNS.Api/CNS.Api.csproj
 dotnet run --project src/CNS.Consumer/CNS.Consumer.csproj
 ```
 
+### اجرا با Docker
+
+در ریشهٔ ریپو یک **`Dockerfile`** وجود دارد که به‌صورت پیش‌فرض پروژهٔ **`CNS.Api`** را در حالت **`Release`** publish می‌کند و آن را با **HTTP روی پورت ۸۰۸۰** اجرا می‌کند (`ASPNETCORE_URLS=http://+:8080`). تصویر پایهٔ build و runtime در Dockerfile به registry داخلی (`reg.daricgold.com/...`) اشاره دارد؛ روی شبکهٔ بدون دسترسی به همان registry باید آدرس را با تصاویر رسمی مانند `mcr.microsoft.com/dotnet/sdk:10.0` و `mcr.microsoft.com/dotnet/aspnet:10.0` (یا `runtime:10.0` برای Consumer) عوض کنید.
+
+برای عملکرد سیستم، **Postgres** و **RabbitMQ** در زمان اجرای API و Consumer در دسترس باشند (می‌توانید از **`docker-compose.yml`** همین ریپو استفاده کنید).
+
+۱) پیش‌نیاز شبکهٔ داکر (به‌قرارداد شما بستگی دارد):
+
+- اگر سرویس‌های دیتابیس و صف روی **همان ماشینی** که API را با `docker run` بالا می‌آورید اجرا می‌شوند، معمولاً از **`host.docker.internal`** به عنوان `HostName` در connection string یا RabbitMQ کمک می‌گیرند (به‌خصوص روی Docker Desktop برای ویندوز/مک).
+- اگر API و Postgres/RabbitMQ همگی **سرویس‌های یک compose/network** هستند، از **نام سرویس** آن‌ها به‌جای localhost استفاده کنید تا DNS داخلی داکر درست باشد.
+
+۲) ساخت تصویر API از ریشهٔ ریپو:
+
+```bash
+docker build -t notification-center-api .
+```
+
+۳) اجرای API؛ مقادیر اتصال را با محیط خود جایگزین کنید. در ASP.NET Core، کلیدهای تو در تو را با **`__`** (دو زیرخط) به‌صورت متغیر محیطی می‌توان ست کرد، مثل `ConnectionStrings__Postgres` و `RabbitMQ__Password`.
+
+```bash
+docker run --rm -p 8080:8080 \
+  -e ConnectionStrings__Postgres="Host=host.docker.internal;Port=54321;Database=app_db;Username=postgres;Password=postgres123" \
+  -e RabbitMQ__HostName=host.docker.internal \
+  -e RabbitMQ__Port=5672 \
+  -e RabbitMQ__VirtualHost=/ \
+  -e RabbitMQ__UserName=admin \
+  -e RabbitMQ__Password=admin123 \
+  -e RabbitMQ__QueueName=notification.send \
+  notification-center-api
+```
+
+پس از بالا آمدن کانتینر، آدرس سرویس API روی ماشین میزبان: **`http://localhost:8080`**. Swagger و OpenAPI بر اساس **`Program.cs`** فقط با محیط **Development** فعال‌اند؛ اگر برای تست موقت Swagger لازم دارید می‌توانید هنگام `docker run` مقدار `ASPNETCORE_ENVIRONMENT=Development` را هم بفرستید (این کار را در محیط واقعی پیشنهاد نمی‌شود جز برای عیب‌یابی کوتاه).
+
+۴) تصویر **Consumer**: همان `Dockerfile` با آرگومان‌های build قابل‌استفاده است؛ برای اندازهٔ کمتر، مرحلهٔ نهایی به‌جای تصویر `aspnet` با تصویر **`runtime`** ساخته می‌شود:
+
+```bash
+docker build \
+  --build-arg APP_PROJECT=CNS.Consumer \
+  --build-arg FINAL_IMAGE=reg.daricgold.com/dotnet/runtime:10.0 \
+  -t notification-center-consumer .
+
+docker run --rm \
+  -e ConnectionStrings__Postgres="Host=host.docker.internal;Port=54321;Database=app_db;Username=postgres;Password=postgres123" \
+  -e RabbitMQ__HostName=host.docker.internal \
+  -e RabbitMQ__Port=5672 \
+  -e RabbitMQ__VirtualHost=/ \
+  -e RabbitMQ__UserName=admin \
+  -e RabbitMQ__Password=admin123 \
+  -e RabbitMQ__QueueName=notification.send \
+  notification-center-consumer
+```
+
+**ذکر امنیت:** فایل‌هایی مثل **`appsettings.local.json`** برای سکرت‌ها هستند و در این ریپو در **`.dockerignore`** عمداً وارد تصویر داکر نمی‌شوند؛ برای اتصالات واقعی از `-e`/secretهای ارکستریشن استفاده کنید تا credential داخل لاگ‌ها یا لاyerهای تصویر پخش نشود.
+
 ## احراز هویت (Basic Auth)
 
 تمام Controllerها از `ApiControllerBase` ارث‌بری می‌کنند و `[Authorize]` فعال است؛ بنابراین همهٔ endpointها نیاز به Basic Auth دارند.

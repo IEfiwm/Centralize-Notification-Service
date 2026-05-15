@@ -21,6 +21,9 @@
 **/obj
 **/secrets.dev.yaml
 **/values.dev.yaml
+**/appsettings.local.json
+**/appsettings.*.local.json
+**/artifacts
 LICENSE
 README.md
 !**/.gitignore
